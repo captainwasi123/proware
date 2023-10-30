@@ -1,0 +1,10 @@
+.user-panel img {
+    width: 40px !important;
+    margin-top: 8px !important;
+}
+.user-panel .info span {
+    font-size: 13px;
+}
+.user-panel .info a {
+    margin-bottom: -4px !important;
+}
