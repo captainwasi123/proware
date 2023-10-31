@@ -80,7 +80,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -89,7 +92,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -98,7 +104,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -107,7 +116,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -116,7 +128,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -125,7 +140,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -134,7 +152,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -143,7 +164,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -152,7 +176,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -161,7 +188,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -170,7 +200,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -179,7 +212,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -188,7 +224,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -197,7 +236,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -206,7 +248,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -215,7 +260,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -224,7 +272,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -233,7 +284,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -242,7 +296,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -251,7 +308,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -260,7 +320,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -269,7 +332,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -278,7 +344,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -287,7 +356,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -296,7 +368,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -305,7 +380,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -314,7 +392,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -323,7 +404,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -332,7 +416,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   <tr>
                     <td>1001</td>
@@ -341,7 +428,10 @@
                     <td>Khalidya</td>
                     <td>xyz</td>
                     <td>8</td>
-                    <td></td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   </tbody>
                   <tfoot>
@@ -393,7 +483,7 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
   });
