@@ -8,3 +8,17 @@
 .user-panel .info a {
     margin-bottom: -4px !important;
 }
+.card-primary.card-outline {
+    border-top: 3px solid #2bb673 !important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #2bb673 !important;
+    border-color: #2bb673 !important;
+}
+.mt-32{
+    margin-top: 32px;
+}
+.pull-right {
+    float: right;
+}

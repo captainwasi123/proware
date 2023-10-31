@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('salesManager.dashboard');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/inquiries', function () {
+    return view('salesManager.inquiries');
+});
