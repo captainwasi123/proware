@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="{{URL::to('/')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -65,19 +65,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{URL::to('/products')}}" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{URL::to('/products/categories')}}" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{URL::to('/products/brands')}}" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Brands</p>
                 </a>
@@ -85,7 +85,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{URL::to('/salesmen')}}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Sales-Men

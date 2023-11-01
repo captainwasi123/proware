@@ -32,3 +32,21 @@ Route::get('/orders', function () {
 Route::get('/customers', function () {
     return view('salesManager.customers');
 });
+
+Route::get('/products', function () {
+    return view('salesManager.products.products');
+});
+
+Route::get('/products/categories', function () {
+    return view('salesManager.products.categories');
+});
+
+Route::get('/products/brands', function () {
+    return view('salesManager.products.brands');
+});
+
+Route::get('/salesmen', function () {
+    return view('salesManager.salesmen');
+});
+
+
