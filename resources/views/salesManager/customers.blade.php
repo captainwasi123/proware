@@ -299,98 +299,125 @@
 
 
 <div class="modal fade" id="modal-lg">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Add Inquiry</h4>
+        <h4 class="modal-title">Add Customer</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Customer</p>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Landline#</label>
+              <input type="text" class="form-control">
+            </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Name</label>
-              <select class="form-control form-control-lg select2" style="width: 100%;">
-                <option selected="selected">Alabama</option>
-                <option>Alaska</option>
-                <option>California</option>
-                <option>Delaware</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
+              <label>Mobile#</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Customer Type</label>
+              <select class="form-control">
+                <option>Pharmacy</option>
+                <option>Baqala</option>
               </select>
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" disabled>
+              <label>Contact Person</label>
+              <input type="text" class="form-control">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Phone</label>
-              <input type="text" class="form-control" disabled>
+              <label>Contact Person Mobile#</label>
+              <input type="text" class="form-control">
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-4">
             <div class="form-group">
-              <label>Address</label>
-              <input type="text" class="form-control" disabled>
+              <label>Status</label>
+              <select class="form-control">
+                <option>Active</option>
+                <option>In-Active</option>
+              </select>
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-            <p class="form-heading">Products</p>
+            <p class="form-heading">Address</p>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Name</label>
-              <select class="form-control form-control-lg select2" style="width: 100%;">
-                <option selected="selected">Alabama</option>
-                <option>Alaska</option>
-                <option>California</option>
-                <option>Delaware</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
+              <label>Shop#</label>
+              <input type="email" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Building/Floor</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Zone</label>
+              <select class="form-control form-control-lg select2">
+                <option>Khalidiya</option>
               </select>
             </div>
           </div>
-          <div class="col-md-2">
+
+
+          <div class="col-md-4">
             <div class="form-group">
-              <label>Brand</label>
-              <input type="email" class="form-control" disabled>
+              <label>City</label>
+              <select class="form-control form-control-lg select2">
+                <option>Khalidiya</option>
+              </select>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-4">
             <div class="form-group">
-              <label>Category</label>
-              <input type="text" class="form-control" disabled>
+              <label>State</label>
+              <select class="form-control form-control-lg select2">
+                <option>Dubai</option>
+              </select>
             </div>
           </div>
-          <div class="col-md-1">
+          <div class="col-md-4">
             <div class="form-group">
-              <label>Quantity</label>
-              <input type="number" class="form-control" value="1">
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Price</label>
-              <input type="number" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <div class="form-group">
-              <button class="btn btn-primary mt-23 pull-right"><i class="fas fa-plus"></i></button>
+              <label>Country</label>
+              <select class="form-control form-control-lg select2">
+                <option>UAE</option>
+              </select>
             </div>
           </div>
         </div>
