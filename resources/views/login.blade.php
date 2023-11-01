@@ -14,6 +14,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{URL::to('/public')}}/dist/css/style.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -25,9 +27,10 @@
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../../index3.html" method="post">
+      <form action="{{route('login')}}">
+        @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email*">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -35,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password*">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -66,10 +69,41 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="{{URL::to('/public')}}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{URL::to('/public')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="{{URL::to('/public')}}/dist/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="{{URL::to('/public')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000
+    });
+    $("form").submit(function (event) {
+      var form=$(this);
+
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        console.log(data);
+        Toast.fire({
+          icon: 'error',
+          title: data.errors
+        });
+      });
+
+      event.preventDefault();
+    });
+  });
+</script>
 </body>
 </html>

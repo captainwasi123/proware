@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@authenticate')->name('login');
+
 Route::get('/', function () {
     return view('salesManager.dashboard');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
 
 Route::get('/inquiries', function () {
     return view('salesManager.inquiries');
