@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{URL::to('/inquiries')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Inquiries
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{URL::to('/orders')}}" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Orders
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{URL::to('/customers')}}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Customers

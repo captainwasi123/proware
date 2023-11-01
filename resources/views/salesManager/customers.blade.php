@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Inquires')
+@section('title', 'Customers')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Inquiries</h1>
+            <h1 class="m-0">Customers</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Inquiries</li>
+              <li class="breadcrumb-item active">Customers</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,27 +32,28 @@
               <div class="card-header">
                   <div class="row">
                     <div class="col-md-2">
-                      <label>From</label>
-                      <input type="date" class="form-control">
+                      <label>Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                      <label>Email</label>
+                      <input type="email" class="form-control">
                     </div>
                     <div class="col-md-2">
-                      <label>To</label>
-                      <input type="date" class="form-control">
+                      <label>Phone#</label>
+                      <input type="text" class="form-control">
                     </div>
                     <div class="col-md-2">
-                      <label>Salesman</label>
+                      <label>Zone</label>
                       <select class="form-control">
                         <option value="">All</option>
                       </select>
                     </div>
                     <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32" title="Add Inquiry"><i class="fas fa-search"></i></a>
-                    </div>
-                    <div class="col-md-3">
-                      
+                      <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Inquiry" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Inquiry</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Customer" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Customer</a>
                     </div>
                   </div>
               </div>
@@ -63,22 +64,24 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Inq#</th>
-                    <th>Date</th>
-                    <th>Customer</th>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone#</th>
                     <th>Zone</th>
-                    <th>Salesman</th>
-                    <th>No. of Products</th>
+                    <th>Inquiries</th>
+                    <th>Orders</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -88,10 +91,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -101,10 +105,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -114,10 +119,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -127,10 +133,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -140,10 +147,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -153,10 +161,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -166,10 +175,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -179,10 +189,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -192,10 +203,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -205,10 +217,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -218,10 +231,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -231,10 +245,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -244,218 +259,11 @@
                   </tr>
                   <tr>
                     <td>1001</td>
-                    <td>31-Oct-2023</td>
                     <td>Aster Pharmacy</td>
+                    <td>abc@gmail.com</td>
+                    <td>12345678</td>
                     <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>31-Oct-2023</td>
-                    <td>Aster Pharmacy</td>
-                    <td>Khalidya</td>
-                    <td>xyz</td>
+                    <td>12</td>
                     <td>8</td>
                     <td class="text-right">
                       <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
@@ -466,12 +274,13 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Inq#</th>
-                    <th>Date</th>
-                    <th>Customer</th>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone#</th>
                     <th>Zone</th>
-                    <th>Salesman</th>
-                    <th>No. of Products</th>
+                    <th>Inquiries</th>
+                    <th>Orders</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

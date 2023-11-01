@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Inquires')
+@section('title', 'Orders')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Inquiries</h1>
+            <h1 class="m-0">Orders</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Inquiries</li>
+              <li class="breadcrumb-item active">Orders</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -46,13 +46,13 @@
                       </select>
                     </div>
                     <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32" title="Add Inquiry"><i class="fas fa-search"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
                     </div>
                     <div class="col-md-3">
                       
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Inquiry" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Inquiry</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Order" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Order</a>
                     </div>
                   </div>
               </div>

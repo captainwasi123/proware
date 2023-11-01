@@ -24,3 +24,11 @@ Route::get('/login', function () {
 Route::get('/inquiries', function () {
     return view('salesManager.inquiries');
 });
+
+Route::get('/orders', function () {
+    return view('salesManager.orders');
+});
+
+Route::get('/customers', function () {
+    return view('salesManager.customers');
+});

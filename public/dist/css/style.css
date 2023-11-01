@@ -19,6 +19,21 @@
 .mt-32{
     margin-top: 32px;
 }
+.mt-23{
+    margin-top: 23px;
+}
 .pull-right {
     float: right;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.form-heading {
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+    font-weight: 600;
+}
+.form-group label {
+    margin-bottom: 0;
+    font-weight: normal !important;
 }
