@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{URL::to('/')}}" class="nav-link active">
+            <a href="{{URL::to('/')}}" class="nav-link {{$menu == 'dashboard' ? 'active' : ''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -55,7 +55,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{$menu == 'categories' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon ion ion-bag"></i>
               <p>
@@ -71,7 +71,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('/products/categories')}}" class="nav-link">
+                <a href="{{route('products.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Categories</p>
                 </a>

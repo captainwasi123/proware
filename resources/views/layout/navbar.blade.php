@@ -96,7 +96,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link btn btn-sm btn-danger text-white" href="#" role="button" title="Sign Out"><i class="fas fa-sign-out-alt"></i></a>
+        <a class="nav-link btn btn-sm btn-danger text-white" href="{{route('logout')}}" role="button" title="Sign Out"><i class="fas fa-sign-out-alt"></i></a>
       </li>
     </ul>
   </nav>

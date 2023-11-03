@@ -84,6 +84,14 @@
       showConfirmButton: false,
       timer: 5000
     });
+
+    @if(session('success'))
+    Toast.fire({
+      icon: 'success',
+      title: "{{ session('success') }}"
+    });
+    @endif
+
     $("form").submit(function (event) {
       var form=$(this);
 
@@ -95,10 +103,21 @@
         encode: true,
       }).done(function (data) {
         console.log(data);
-        Toast.fire({
-          icon: 'error',
-          title: data.errors
-        });
+        
+        if(data.success){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          setTimeout(function(){
+            window.location.href = "{{URL::to('/')}}";
+          }, 500)
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
       });
 
       event.preventDefault();

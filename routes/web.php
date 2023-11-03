@@ -15,9 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@authenticate')->name('login');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
-Route::get('/', function () {
-    return view('salesManager.dashboard');
+Route::middleware('userAuth')->group(function(){
+    Route::get('/', 'MainController@index')->name('dashboard');
+
+    //Products
+    Route::prefix('products')->namespace('Products')->group(function(){
+
+        //Categories
+        Route::prefix('categories')->group(function(){
+            Route::get('/', 'CategoryController@index')->name('products.categories');
+            Route::get('/load', 'CategoryController@load')->name('products.categories.load');
+            Route::post('/create', 'CategoryController@create')->name('products.categories.create');
+
+            Route::get('/delete/{id}', 'CategoryController@delete')->name('products.categories.delete');
+        });
+    });
 });
 
 
@@ -37,9 +51,6 @@ Route::get('/products', function () {
     return view('salesManager.products.products');
 });
 
-Route::get('/products/categories', function () {
-    return view('salesManager.products.categories');
-});
 
 Route::get('/products/brands', function () {
     return view('salesManager.products.brands');
