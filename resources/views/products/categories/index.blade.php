@@ -33,7 +33,7 @@
               <div class="card-header">
                   <div class="row">
                     <div class="col-md-12">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Category" data-toggle="modal" data-target="#addCategoryModal"><i class="fas fa-plus"></i> Add Category</a>
+                      <a href="javascript:void(0)" class="btn btn-primary pull-right addNewCategory" title="Add Category"><i class="fas fa-plus"></i> Add Category</a>
                     </div>
                   </div>
               </div>
@@ -44,10 +44,10 @@
                 <table id="categoryTable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Category</th>
-                    <th>No. of Products</th>
-                    <th class="text-right">Action</th>
+                    <th width="10&">#</th>
+                    <th width="50%">Category</th>
+                    <th width="20%">No. of Products</th>
+                    <th width="20%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="categoryTableBody">
@@ -82,6 +82,7 @@
     <div class="modal-content">
       <form id="addCategoryForm" action="{{route('products.categories.create')}}">
         @csrf
+        <input type="hidden" name="cat_id" id="cat_id">
         <div class="modal-header">
           <h4 class="modal-title">Add Category</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -93,7 +94,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" >
+                <input type="text" class="form-control" name="name" id="cat_name" required>
               </div>
             </div>
           </div>
@@ -108,6 +109,7 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+
 @endsection
 @section('addStyle')
 <!-- DataTables -->
@@ -137,6 +139,17 @@
       showConfirmButton: false,
       timer: 5000
     });
+
+
+
+
+    $(document).on('click', '.addNewCategory', function(){
+      $("#addCategoryForm").trigger("reset");
+      $('#cat_id').val('');
+      $('#addCategoryModal .modal-title').html('Add Category');
+      $('#addCategoryModal').modal('show');
+    });
+
 
     $("#addCategoryForm").submit(function (event) {
       var form=$(this);
@@ -196,8 +209,20 @@
                   title: "Warning! This category has products listed."
                 });
               }
-          })
+          });
         }
+      });
+    });
+
+    $(document).on('click', '.editCategory', function(){
+      var id = $(this).data('id');
+
+      $.getJSON("{{URL::to('/products/categories/edit')}}/"+id, function(data){
+          $('#cat_id').val(data.id);
+          $('#cat_name').val(data.name);
+
+          $('#addCategoryModal .modal-title').html('Edit Category');
+          $('#addCategoryModal').modal('show');
       });
     });
   });

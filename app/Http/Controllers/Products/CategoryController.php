@@ -32,10 +32,20 @@ class CategoryController extends Controller
         }else{
             $cat = Categories::where('name', $data['name'])->get();
             if(count($cat) == 0){
-                Categories::create($data);
+                if(!empty($data['cat_id'])){
+                    $id = base64_decode($data['cat_id']);
+                    $cat = Categories::find($id);
+                    $cat->name = $data['name'];
+                    $cat->save();
 
-                $response['success'] = true;
-                $response['message'] = 'Success!';
+                    $response['success'] = true;
+                    $response['message'] = 'Success! Category Updated.'; 
+                }else{
+                    Categories::create($data);
+
+                    $response['success'] = true;
+                    $response['message'] = 'Success! New Category Created.';
+                }
             }else{
                 $response['success'] = false;
                 $response['errors'] = 'Alert! This category ('.$data["name"].') is already availble.';
@@ -43,6 +53,17 @@ class CategoryController extends Controller
         }
 
         echo json_encode($response);
+    }
+
+    public function edit($id){
+        $id = base64_decode($id);
+
+        $data = Categories::find($id);
+
+        $response['id'] = base64_encode($data->id);
+        $response['name'] = $data->name;
+
+        return json_encode($response);
     }
 
     public function delete($id){

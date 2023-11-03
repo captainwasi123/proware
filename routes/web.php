@@ -29,6 +29,8 @@ Route::middleware('userAuth')->group(function(){
             Route::get('/load', 'CategoryController@load')->name('products.categories.load');
             Route::post('/create', 'CategoryController@create')->name('products.categories.create');
 
+            Route::get('/edit/{id}', 'CategoryController@edit')->name('products.categories.edit');  
+
             Route::get('/delete/{id}', 'CategoryController@delete')->name('products.categories.delete');
         });
     });
