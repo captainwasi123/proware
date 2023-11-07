@@ -27,6 +27,8 @@ Route::middleware('userAuth')->group(function(){
     //Products
     Route::prefix('products')->namespace('Products')->group(function(){
 
+        Route::get('/', 'ProductController@index')->name('products');
+
         //Categories
         Route::prefix('categories')->group(function(){
             Route::get('/', 'CategoryController@index')->name('products.categories');
@@ -63,10 +65,6 @@ Route::get('/orders', function () {
 
 Route::get('/customers', function () {
     return view('salesManager.customers');
-});
-
-Route::get('/products', function () {
-    return view('salesManager.products.products');
 });
 
 
