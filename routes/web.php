@@ -29,6 +29,8 @@ Route::middleware('userAuth')->group(function(){
 
         Route::get('/', 'ProductController@index')->name('products');
 
+        Route::post('/create', 'ProductController@create')->name('products.create');
+
         //Categories
         Route::prefix('categories')->group(function(){
             Route::get('/', 'CategoryController@index')->name('products.categories');

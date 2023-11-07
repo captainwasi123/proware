@@ -351,70 +351,70 @@
 <div class="modal fade" id="modal-lg">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <form id="addProductForm" action="{{route('products.create')}}" enctype="multipart/form-data">
+        @csrf
       <div class="modal-header">
-        <h4 class="modal-title">Add Customer</h4>
+        <h4 class="modal-title">Add Product</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-12">
+            <div class="product-image-wrapper">
+              <input type="file" name="product_image" accept="image/*" />
+              <div class="close-btn">×</div>
+            </div>
+          </div>
+          <div class="col-md-12">
             <div class="form-group">
               <label>Name</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="name" required>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-6">
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control">
+              <label>Category</label>
+              <select class="form-control form-control-lg select2" name="category_id" required>
+                <option value="">Select</option>
+                @foreach($categories as $val)
+                  <option value="{{$val->id}}">{{$val->name}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
-              <label>Landline#</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Mobile#</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Customer Type</label>
-              <select class="form-control">
-                <option>Pharmacy</option>
-                <option>Baqala</option>
+              <label>Brand</label>
+              <select class="form-control form-control-lg select2" name="brand_id" required>
+                <option value="">Select</option>
+                @foreach($brands as $val)
+                  <option value="{{$val->id}}">{{$val->name}}</option>
+                @endforeach
               </select>
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Contact Person</label>
-              <input type="text" class="form-control">
+              <label>Price</label>
+              <input type="number" class="form-control" step="any" name="Price" required>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Contact Person Mobile#</label>
-              <input type="text" class="form-control">
+              <label>Discount%</label>
+              <input type="number" class="form-control" step="any" name="discount">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label>Status</label>
-              <select class="form-control">
-                <option>Active</option>
-                <option>In-Active</option>
+              <select class="form-control" name="status">
+                <option value="1">Available</option>
+                <option value="0">Unavailable</option>
               </select>
             </div>
           </div>
@@ -424,23 +424,17 @@
           <div class="col-md-12">
             <p class="form-heading">Additional Information</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group">
               <label>Description</label>
-              <textarea class="form-control" rows="5"></textarea>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Special Remarks</label>
-              <textarea class="form-control" rows="5"></textarea>
+              <textarea class="form-control" name="discription" rows="5"></textarea>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -484,6 +478,62 @@
       "buttons": ["excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+
+    $('input[name="product_image"]').on('change', function(){
+      readURL(this, $('.product-image-wrapper'));  //Change the image
+    });
+
+    $('.close-btn').on('click', function(){ //Unset the image
+       let file = $('input[name="upload-img"]');
+       $('.product-image-wrapper').css('background-image', 'unset');
+       $('.product-image-wrapper').removeClass('file-set');
+       file.replaceWith( file = file.clone( true ) );
+    });
+
+    $("#addProductForm").submit(function (event) {
+      var form=$(this);
+      console.log(form.serialize());
+
+     /* $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success){
+          $('#addCategoryModal').modal('hide');
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          setTimeout(function(){
+            $("#addCategoryForm").trigger("reset");
+            loadCategories();
+          }, 500)
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });*/
+
+      event.preventDefault();
+    }); 
+
   });
+
+  //FILE
+  function readURL(input, obj){
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        obj.css('background-image', 'url('+e.target.result+')');
+        obj.addClass('file-set');
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
 </script>
 @endsection
