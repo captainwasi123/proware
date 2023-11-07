@@ -25,6 +25,15 @@ class ProductController extends Controller
         return view('products.products.load', ['data' => $data]);
     }
 
+    public function edit($id){
+        $id = base64_decode($id);
+        $data['brands'] = Brands::all();
+        $data['categories'] = Categories::all();
+        $data['data'] = Products::find($id);
+
+        return view('products.products.edit')->with($data);
+    }
+
     public function create(Request $request){
         $data = $request->all();
         $response = [];
@@ -53,5 +62,46 @@ class ProductController extends Controller
         }
 
         echo json_encode($response);
+    }
+
+    public function product_update(Request $request){
+        $data = $request->all();
+        $response = [];
+        $id = base64_decode($data['product_id']);
+
+        if (empty($data['name']) || empty($data['category_id']) || empty($data['brand_id']) || empty($data['price'])) {
+            $response['success'] = 'error';
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            Products::product_update($id, $data);
+
+            if($request->hasFile('edit_product_image')){
+                $file = $request->file('edit_product_image');
+                $ext = $file->getClientOriginalExtension();
+                $newname = $id.date('dmyhis').'.'.$ext;
+
+                $file->move(public_path().'/storage/products',$newname);
+
+                $p = Products::find($id);
+                $p->image = $newname;
+                $p->save();
+
+            }
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Product Successfully Updated.';
+        }
+
+        echo json_encode($response);
+    }
+
+    public function delete($id){
+        $id = base64_decode($id);
+
+        Products::destroy($id);
+
+        $response = 'success';
+
+        return $response;
     }
 }

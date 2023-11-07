@@ -13,8 +13,8 @@
           <img src="{{URL::to('/public')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-          <span class="text-white">Sales Manager</span>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <span class="text-white">{{Auth::user()->type == '1' ? 'Sales Manager' : 'Sales Man'}}</span>
         </div>
       </div>
 

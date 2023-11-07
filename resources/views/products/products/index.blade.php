@@ -258,6 +258,14 @@
 
     $('.select2').select2();
 
+    $(document).on('click', '.editProduct', function(){
+      var id = $(this).data('id');
+      var url = '{{URL::to("/products/edit/")}}/'+id;
+      $.get(url, function(data){
+        $('#editProductModal .modal-content').html(data);
+      });
+      $('#editProductModal').modal('show');
+    });
 
     $('input[name="product_image"]').on('change', function(){
       readURL(this, $('.product-image-wrapper'));  //Change the image
@@ -270,11 +278,11 @@
        file.replaceWith( file = file.clone( true ) );
     });
 
-    $('input[name="edit_product_image"]').on('change', function(){
+    $(document).on('change','input[name="edit_product_image"]', function(){
       readURL(this, $('.edit_product-image-wrapper'));  //Change the image
     });
 
-    $('.close-btn').on('click', function(){ //Unset the image
+    $(document).on('click','.edit_close-btn', function(){ //Unset the image
        let file = $('input[name="edit_product_image"]');
        $('.edit_product-image-wrapper').css('background-image', 'unset');
        $('.edit_product-image-wrapper').removeClass('file-set');
@@ -312,6 +320,61 @@
       event.preventDefault();
     }); 
 
+    $(document).on('submit', '#editProductForm', function (event) {
+      var form=$(this);
+      var formData = new FormData($("#editProductForm")[0]);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('#editProductModal').modal('hide');
+          loadProducts();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+    $(document).on('click', '.deleteProduct', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/products/delete')}}/"+id, function(data){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! Product Successfully Deleted.'
+                });
+                loadProducts();
+          });
+        }
+      });
+    }); 
+
   });
 
   //FILE
@@ -332,7 +395,7 @@
     $('#productTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){
       $('#productTableBody').html(data);
-      
+      $("#productTable").destroy();
       $("#productTable").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
         "buttons": ["excel", "pdf", "print"]

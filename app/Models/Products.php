@@ -29,6 +29,20 @@ class Products extends Model
         return $p->id;
     }
 
+    public static function product_update($id, $data){
+        $p = Products::find($id);
+        $p->name = $data['name'];
+        $p->brand_id = $data['brand_id'];
+        $p->category_id = $data['category_id'];
+        $p->price = $data['price'];
+        $p->discount = empty($data['discount']) ? 0 : $data['discount'];
+        $p->discription = empty($data['discription']) ? '' : $data['discription'];
+        $p->status = $data['status'];
+        $p->save();
+
+        return $p->id;
+    }
+
 
     public function brand(){
         return $this->belongsTo(Brands::class, 'brand_id', 'id');

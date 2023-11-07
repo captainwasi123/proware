@@ -68,7 +68,7 @@
   color: gray;
 }
 .product-image-wrapper:hover:after, .edit_product-image-wrapper:hover:after{font-size: 73px;}
-.product-image-wrapper .close-btn, .edit_product-image-wrapper .close-btn {display: none;}
+.product-image-wrapper .close-btn, .edit_product-image-wrapper .edit_close-btn {display: none;}
 input[type="file"]{
   position: absolute;
   width: 100%;
@@ -90,7 +90,7 @@ input[type="file"]{
 }
 .file-set:before{color: transparent;}
 .file-set:after{color: transparent;}
-.file-set .close-btn{
+.file-set .close-btn, .file-set .edit_close-btn{
   position: absolute;
   width: 35px;
   height: 35px;

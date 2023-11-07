@@ -29,7 +29,10 @@ Route::middleware('userAuth')->group(function(){
 
         Route::get('/', 'ProductController@index')->name('products');
         Route::get('/load', 'ProductController@load')->name('products.load');
+        Route::get('/edit/{id}', 'ProductController@edit');
+        Route::get('/delete/{id}', 'ProductController@delete');
         Route::post('/create', 'ProductController@create')->name('products.create');
+        Route::post('/update', 'ProductController@product_update')->name('products.update');
 
         //Categories
         Route::prefix('categories')->group(function(){
