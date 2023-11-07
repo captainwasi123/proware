@@ -104,4 +104,19 @@ class ProductController extends Controller
 
         return $response;
     }
+
+    public function product_filter(Request $request){
+        $req = $request->all();
+        $data = Products::when(!empty($req['name']), function ($q) use ($req) {
+                    return $q->where('name','like',  '%'.$req['name'].'%');
+                })->when(!empty($req['brand_id']), function ($q) use ($req) {
+                    return $q->where('brand_id','=', $req['brand_id']);
+                })->when(!empty($req['category_id']), function ($q) use ($req) {
+                    return $q->where('category_id','=', $req['category_id']);
+                })->when(!empty($req['status']), function ($q) use ($req) {
+                    return $q->where('status','=', $req['status']);
+                })->get();
+
+        return view('products.products.load', ['data' => $data]);
+    }
 }

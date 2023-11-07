@@ -30,36 +30,50 @@
 
             <div class="card">
               <div class="card-header">
+                <form id="filterProduct">
+                  @csrf
                   <div class="row">
                     <div class="col-md-3">
                       <label>Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="name">
                     </div>
                     <div class="col-md-2">
                       <label>Brand</label>
-                      <select class="form-control">
+                      <select class="form-control" name="brand_id">
                         <option value="">All</option>
+                        @foreach($brands as $val)
+                          <option value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-md-2">
                       <label>Category</label>
-                      <select class="form-control">
-                        <option>All</option>
+                      <select class="form-control" name="category_id">
+                        <option value="">All</option>
+                        @foreach($categories as $val)
+                          <option value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-md-2">
                       <label>Status</label>
-                      <select class="form-control">
+                      <select class="form-control" name="status">
                         <option value="">All</option>
+                        <option value="1">Available</option>
+                        <option value="2">Unavailable</option>
                       </select>
                     </div>
-                    <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
+                    <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
+                      <button type="submit" class="btn btn-info mt-32"><i class="fas fa-search"></i></button>
+                      <div class="reset_button">
+                        
+                      </div>
                     </div>
                     <div class="col-md-2">
                       <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Product" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i> Add Product</a>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
             <div class="card">
@@ -175,7 +189,7 @@
               <label>Status</label>
               <select class="form-control" name="status">
                 <option value="1">Available</option>
-                <option value="0">Unavailable</option>
+                <option value="2">Unavailable</option>
               </select>
             </div>
           </div>
@@ -369,11 +383,37 @@
                   icon: 'success',
                   title: 'Success! Product Successfully Deleted.'
                 });
+                $("#productTable").destroy();
                 loadProducts();
           });
         }
       });
     }); 
+
+
+    $("#filterProduct").submit(function (event) {
+      $('#productTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('products.filter')}}";
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        encode: true,
+      }).done(function (data) {
+        $('#productTableBody').html(data);
+        $("#productTable").DataTable();
+        $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
+      });
+
+      event.preventDefault();
+    }); 
+
+    $(document).on('click', '.reset_filter', function(){
+      loadProducts();
+      $("#filterProduct").trigger('reset');
+      $('.reset_button').html('');
+    });
 
   });
 
@@ -394,12 +434,10 @@
 
     $('#productTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){
+
       $('#productTableBody').html(data);
-      $("#productTable").destroy();
-      $("#productTable").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["excel", "pdf", "print"]
-      });
+
+      $("#productTable").DataTable();
     });
   }
 </script>

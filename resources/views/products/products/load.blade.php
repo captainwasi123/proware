@@ -13,7 +13,7 @@
         			<label class="badge badge-success">Available</label>
         			@break
 
-        		@case('0')
+        		@case('2')
         			<label class="badge badge-danger">Unavailable</label>
         			@break
         	@endswitch

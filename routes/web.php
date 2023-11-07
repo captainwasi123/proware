@@ -33,6 +33,7 @@ Route::middleware('userAuth')->group(function(){
         Route::get('/delete/{id}', 'ProductController@delete');
         Route::post('/create', 'ProductController@create')->name('products.create');
         Route::post('/update', 'ProductController@product_update')->name('products.update');
+        Route::post('/filter', 'ProductController@product_filter')->name('products.filter');
 
         //Categories
         Route::prefix('categories')->group(function(){

@@ -65,7 +65,7 @@
           <label>Status</label>
           <select class="form-control" name="status">
             <option value="1" {{$data->status == '1' ? 'selected' : ''}}>Available</option>
-            <option value="0" {{$data->status == '0' ? 'selected' : ''}}>Unavailable</option>
+            <option value="2" {{$data->status == '2' ? 'selected' : ''}}>Unavailable</option>
           </select>
         </div>
       </div>
