@@ -28,7 +28,7 @@ Route::middleware('userAuth')->group(function(){
     Route::prefix('products')->namespace('Products')->group(function(){
 
         Route::get('/', 'ProductController@index')->name('products');
-
+        Route::get('/load', 'ProductController@load')->name('products.load');
         Route::post('/create', 'ProductController@create')->name('products.create');
 
         //Categories

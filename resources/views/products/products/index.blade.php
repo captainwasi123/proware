@@ -57,7 +57,7 @@
                       <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Product" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Product</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Product" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i> Add Product</a>
                     </div>
                   </div>
               </div>
@@ -65,7 +65,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="productTable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>
@@ -79,247 +79,8 @@
                     <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Panadol</td>
-                    <td>abc</td>
-                    <td>Medicine</td>
-                    <td>20 AED</td>
-                    <td>5%</td>
-                    <td>246</td>
-                    <td><label class="badge badge-success">Available</label></td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
+                  <tbody id="productTableBody">
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -348,7 +109,7 @@
   </div>
 
 
-<div class="modal fade" id="modal-lg">
+<div class="modal fade" id="addProductModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <form id="addProductForm" action="{{route('products.create')}}" enctype="multipart/form-data">
@@ -400,7 +161,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Price</label>
-              <input type="number" class="form-control" step="any" name="Price" required>
+              <input type="number" class="form-control" step="any" name="price" required>
             </div>
           </div>
           <div class="col-md-4">
@@ -441,6 +202,16 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="editProductModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 @endsection
 @section('addStyle')
 <!-- DataTables -->
@@ -450,6 +221,8 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 @endsection
 @section('addScript')
 <!-- DataTables  & Plugins -->
@@ -468,15 +241,22 @@
 
 <!-- Select2 -->
 <script src="{{URL::to('/public')}}/plugins/select2/js/select2.full.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="{{URL::to('/public')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <script>
   $(function () {
-    $('.select2').select2();
 
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["excel", "pdf", "print"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    loadProducts();
+
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000
+    });
+
+    $('.select2').select2();
 
 
     $('input[name="product_image"]').on('change', function(){
@@ -484,40 +264,50 @@
     });
 
     $('.close-btn').on('click', function(){ //Unset the image
-       let file = $('input[name="upload-img"]');
+       let file = $('input[name="product_image"]');
        $('.product-image-wrapper').css('background-image', 'unset');
        $('.product-image-wrapper').removeClass('file-set');
        file.replaceWith( file = file.clone( true ) );
     });
 
+    $('input[name="edit_product_image"]').on('change', function(){
+      readURL(this, $('.edit_product-image-wrapper'));  //Change the image
+    });
+
+    $('.close-btn').on('click', function(){ //Unset the image
+       let file = $('input[name="edit_product_image"]');
+       $('.edit_product-image-wrapper').css('background-image', 'unset');
+       $('.edit_product-image-wrapper').removeClass('file-set');
+       file.replaceWith( file = file.clone( true ) );
+    });
+
     $("#addProductForm").submit(function (event) {
       var form=$(this);
-      console.log(form.serialize());
-
-     /* $.ajax({
+      var formData = new FormData($("#addProductForm")[0]);
+      $.ajax({
         type: "POST",
         url: form.attr("action"),
-        data: form.serialize(),
+        data: formData,
         dataType: "json",
         encode: true,
+        processData: false,
+        contentType: false,
       }).done(function (data) {
-        if(data.success){
-          $('#addCategoryModal').modal('hide');
+        if(data.success == 'success'){
           Toast.fire({
             icon: 'success',
             title: data.message
           });
-          setTimeout(function(){
-            $("#addCategoryForm").trigger("reset");
-            loadCategories();
-          }, 500)
+          form.trigger("reset");
+          $('#addProductModal').modal('hide');
+          loadProducts();
         }else{
           Toast.fire({
             icon: 'error',
             title: data.errors
           });
         }
-      });*/
+      });
 
       event.preventDefault();
     }); 
@@ -535,5 +325,19 @@
       reader.readAsDataURL(input.files[0]);
     }
   };
+
+  function loadProducts(){
+    var url = "{{route('products.load')}}";
+
+    $('#productTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $.get(url, function(data){
+      $('#productTableBody').html(data);
+      
+      $("#productTable").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["excel", "pdf", "print"]
+      });
+    });
+  }
 </script>
 @endsection

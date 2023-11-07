@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('brand_id');
             $table->integer('category_id');
             $table->double('price');
-            $table->float('discout')->nullable();
-            $table->longText('discreption')->nullable();
+            $table->float('discount')->nullable();
+            $table->longText('discription')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('created_by');
             $table->timestamps();

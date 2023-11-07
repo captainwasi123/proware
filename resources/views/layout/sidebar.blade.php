@@ -55,7 +55,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{$menu == 'categories' || $menu == 'brands' ? 'menu-open' : ''}}">
+          <li class="nav-item {{$menu == 'categories' || $menu == 'brands' || $menu == 'products' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon ion ion-bag"></i>
               <p>
@@ -65,7 +65,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{URL::to('/products')}}" class="nav-link">
+                <a href="{{URL::to('/products')}}" class="nav-link {{$menu == 'products' ? 'active' : ''}}">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Products</p>
                 </a>
