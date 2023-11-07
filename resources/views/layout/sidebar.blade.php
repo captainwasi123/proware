@@ -55,7 +55,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{$menu == 'categories' ? 'menu-open' : ''}}">
+          <li class="nav-item {{$menu == 'categories' || $menu == 'brands' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon ion ion-bag"></i>
               <p>
@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('/products/brands')}}" class="nav-link">
+                <a href="{{URL::to('/products/brands')}}" class="nav-link {{$menu == 'brands' ? 'active' : ''}}">
                   <i class="fas fa-minus nav-icon"></i>
                   <p>Brands</p>
                 </a>

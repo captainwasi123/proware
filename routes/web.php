@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Authentication
+
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@authenticate')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+
+//Authenticated
 Route::middleware('userAuth')->group(function(){
     Route::get('/', 'MainController@index')->name('dashboard');
 
@@ -32,6 +36,18 @@ Route::middleware('userAuth')->group(function(){
             Route::get('/edit/{id}', 'CategoryController@edit')->name('products.categories.edit');  
 
             Route::get('/delete/{id}', 'CategoryController@delete')->name('products.categories.delete');
+        });
+
+
+        //Brands
+        Route::prefix('brands')->group(function(){
+            Route::get('/', 'BrandController@index')->name('products.brands');
+            Route::get('/load', 'BrandController@load')->name('products.brands.load');
+            Route::post('/create', 'BrandController@create')->name('products.brands.create');
+
+            Route::get('/edit/{id}', 'BrandController@edit')->name('products.brands.edit');  
+
+            Route::get('/delete/{id}', 'BrandController@delete')->name('products.brands.delete');
         });
     });
 });
@@ -53,10 +69,6 @@ Route::get('/products', function () {
     return view('salesManager.products.products');
 });
 
-
-Route::get('/products/brands', function () {
-    return view('salesManager.products.brands');
-});
 
 Route::get('/salesmen', function () {
     return view('salesManager.salesmen');
