@@ -28,6 +28,7 @@ Route::middleware('userAuth')->group(function(){
     Route::prefix('customers')->group(function(){
         Route::get('/', 'CustomerController@index')->name('customers');
         Route::get('/load', 'CustomerController@load')->name('customers.load');
+        Route::get('/view/{id}', 'CustomerController@view');
         Route::get('/edit/{id}', 'CustomerController@edit');
         Route::get('/delete/{id}', 'CustomerController@delete');
         Route::post('/create', 'CustomerController@create')->name('customers.create');

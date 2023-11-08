@@ -61,7 +61,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="customerTable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>
@@ -74,203 +74,8 @@
                     <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1001</td>
-                    <td>Aster Pharmacy</td>
-                    <td>abc@gmail.com</td>
-                    <td>12345678</td>
-                    <td>Khalidya</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td class="text-right">
-                      <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
+                  <tbody id="customerTableBody">
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -454,6 +259,26 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="editCustomerModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="viewCustomerModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 @endsection
 @section('addStyle')
 <!-- DataTables -->
@@ -463,6 +288,8 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 @endsection
 @section('addScript')
 <!-- DataTables  & Plugins -->
@@ -481,16 +308,139 @@
 
 <!-- Select2 -->
 <script src="{{URL::to('/public')}}/plugins/select2/js/select2.full.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="{{URL::to('/public')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <script>
   $(function () {
     $('.select2').select2();
 
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["excel", "pdf", "print"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    loadCustomers();
+
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000
+    });
+
+    $("#addCustomerForm").submit(function (event) {
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('#addCustomerModal').modal('hide');
+          loadCustomers();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    $(document).on('click', '.editCustomer', function(){
+      var id = $(this).data('id');
+      var url = '{{URL::to("/customers/edit/")}}/'+id;
+      $.get(url, function(data){
+        $('#editCustomerModal .modal-content').html(data);
+      });
+      $('#editCustomerModal').modal('show');
+    });
+
+
+    $(document).on('submit', '#editCustomerForm', function (event) {
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('#editCustomerModal').modal('hide');
+          loadCustomers();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    $(document).on('click', '.deleteCustomer', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/customers/delete')}}/"+id, function(data){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! Customer Successfully Deleted.'
+                });
+                //$("#customerTable").destroy();
+                loadCustomers();
+          });
+        }
+      });
+    });
+
+
+    $(document).on('click', '.viewCustomer', function(){
+      var id = $(this).data('id');
+      var url = '{{URL::to("/customers/view/")}}/'+id;
+      $.get(url, function(data){
+        $('#viewCustomerModal .modal-content').html(data);
+      });
+      $('#viewCustomerModal').modal('show');
+    });
 
   });
+
+
+
+  function loadCustomers(){
+    var url = "{{route('customers.load')}}";
+
+    $('#customerTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $.get(url, function(data){
+
+      $('#customerTableBody').html(data);
+
+      $("#customerTable").DataTable();
+    });
+  }
 </script>
 @endsection

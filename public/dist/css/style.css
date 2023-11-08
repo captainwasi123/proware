@@ -105,3 +105,12 @@ input[type="file"]{
   opacity: 0.8;
 }
 .file-set > input{pointer-events: none;}
+
+.customerDetails{
+    display: none;
+}
+.viewModalText {
+    border-left: 1px solid #777;
+    padding-left: 10px;
+    border-radius: 6px;
+}
