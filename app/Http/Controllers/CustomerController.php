@@ -90,4 +90,19 @@ class CustomerController extends Controller
 
         return view('customers.view')->with($data);
     }
+
+    public function customer_filter(Request $request){
+        $req = $request->all();
+        $data = Customers::when(!empty($req['name']), function ($q) use ($req) {
+                    return $q->where('name','like',  '%'.$req['name'].'%');
+                })->when(!empty($req['email']), function ($q) use ($req) {
+                    return $q->where('email','=', $req['email']);
+                })->when(!empty($req['phone']), function ($q) use ($req) {
+                    return $q->where('mobile','=', $req['phone']);
+                })->when(!empty($req['zone_id']), function ($q) use ($req) {
+                    return $q->where('zone_id','=', $req['zone_id']);
+                })->get();
+
+        return view('customers.load', ['data' => $data]);
+    }
 }

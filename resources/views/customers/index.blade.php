@@ -30,32 +30,41 @@
 
             <div class="card">
               <div class="card-header">
+                <form id="filterCustomer">
+                  @csrf
                   <div class="row">
                     <div class="col-md-2">
                       <label>Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="name">
                     </div>
                     <div class="col-md-3">
                       <label>Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" class="form-control" name="email">
                     </div>
                     <div class="col-md-2">
                       <label>Phone#</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="mobile">
                     </div>
                     <div class="col-md-2">
                       <label>Zone</label>
-                      <select class="form-control">
+                      <select class="form-control form-control-lg select2" name="zone_id">
                         <option value="">All</option>
+                        @foreach($zones as $val)
+                          <option value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
                       </select>
                     </div>
-                    <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
+                    <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
+                      <button type="submit" class="btn btn-info mt-32"><i class="fas fa-search"></i></button>
+                      <div class="reset_button">
+                        
+                      </div>
                     </div>
                     <div class="col-md-2">
                       <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Customer" data-toggle="modal" data-target="#addCustomerModal"><i class="fas fa-plus"></i> Add Customer</a>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
             <div class="card">
@@ -425,6 +434,31 @@
         $('#viewCustomerModal .modal-content').html(data);
       });
       $('#viewCustomerModal').modal('show');
+    });
+
+
+    $("#filterCustomer").submit(function (event) {
+      $('#customerTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('customers.filter')}}";
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        encode: true,
+      }).done(function (data) {
+        $('#customerTableBody').html(data);
+        $("#customerTable").DataTable();
+        $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
+      });
+
+      event.preventDefault();
+    }); 
+
+    $(document).on('click', '.reset_filter', function(){
+      loadCustomers();
+      $("#filterCustomer").trigger('reset');
+      $('.reset_button').html('');
     });
 
   });
