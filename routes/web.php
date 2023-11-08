@@ -24,6 +24,17 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::middleware('userAuth')->group(function(){
     Route::get('/', 'MainController@index')->name('dashboard');
 
+    //Customers
+    Route::prefix('customers')->group(function(){
+        Route::get('/', 'CustomerController@index')->name('customers');
+        Route::get('/load', 'CustomerController@load')->name('customers.load');
+        Route::get('/edit/{id}', 'CustomerController@edit');
+        Route::get('/delete/{id}', 'CustomerController@delete');
+        Route::post('/create', 'CustomerController@create')->name('customers.create');
+        Route::post('/update', 'CustomerController@customer_update')->name('customers.update');
+        Route::post('/filter', 'CustomerController@customer_filter')->name('customers.filter');
+    });
+
     //Products
     Route::prefix('products')->namespace('Products')->group(function(){
 
@@ -67,10 +78,6 @@ Route::get('/inquiries', function () {
 
 Route::get('/orders', function () {
     return view('salesManager.orders');
-});
-
-Route::get('/customers', function () {
-    return view('salesManager.customers');
 });
 
 

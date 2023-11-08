@@ -53,7 +53,7 @@
                       <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Customer" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Add Customer</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Customer" data-toggle="modal" data-target="#addCustomerModal"><i class="fas fa-plus"></i> Add Customer</a>
                     </div>
                   </div>
               </div>
@@ -298,152 +298,157 @@
   </div>
 
 
-<div class="modal fade" id="modal-lg">
+<div class="modal fade" id="addCustomerModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add Customer</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control">
-            </div>
-          </div>
+      <form id="addCustomerForm" action="{{route('customers.create')}}">
+        @csrf
+        <div class="modal-header">
+          <h4 class="modal-title">Add Customer</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Landline#</label>
-              <input type="text" class="form-control">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" required>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email">
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Mobile#</label>
-              <input type="text" class="form-control">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Landline#</label>
+                <input type="text" class="form-control" name="landline">
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Customer Type</label>
-              <select class="form-control">
-                <option>Pharmacy</option>
-                <option>Baqala</option>
-              </select>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Mobile#</label>
+                <input type="text" class="form-control" name="mobile" required>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Contact Person</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Contact Person Mobile#</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control">
-                <option>Active</option>
-                <option>In-Active</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Address</p>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Shop#</label>
-              <input type="email" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Building/Floor</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Zone</label>
-              <select class="form-control form-control-lg select2">
-                <option>Khalidiya</option>
-              </select>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Customer Type</label>
+                <select class="form-control" name="customer_type" required>
+                  @foreach($customer_type as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" class="form-control" name="contact_person" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Contact Person Mobile#</label>
+                <input type="text" class="form-control" name="contact_person_mobile" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Status</label>
+                <select class="form-control" name="status" required>
+                  <option value="1">Active</option>
+                  <option value="0">In-Active</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>City</label>
-              <select class="form-control form-control-lg select2">
-                <option>Khalidiya</option>
-              </select>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="form-heading">Address</p>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Shop#</label>
+                <input type="text" class="form-control" name="shop_no" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Building/Floor</label>
+                <input type="text" class="form-control" name="building_floor" required>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Country</label>
+                <select class="form-control form-control-lg select2 countryField" name="country_id" required>
+                  @foreach($countries as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>State</label>
+                <select class="form-control form-control-lg select2 stateField" name="state_id" required>
+                  <option value="">Select</option>
+                  @foreach($states as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Zone</label>
+                <select class="form-control form-control-lg select2 zoneField" name="zone_id" required>
+                  <option value="">Select</option>
+                  @foreach($zones as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>State</label>
-              <select class="form-control form-control-lg select2">
-                <option>Dubai</option>
-              </select>
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="form-heading">Additional Information</p>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Country</label>
-              <select class="form-control form-control-lg select2">
-                <option>UAE</option>
-              </select>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="5" name="description"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Special Remarks</label>
+                <textarea class="form-control" rows="5" name="special_remarks"></textarea>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Additional Information</p>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Description</label>
-              <textarea class="form-control" rows="5"></textarea>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Special Remarks</label>
-              <textarea class="form-control" rows="5"></textarea>
-            </div>
-          </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </form>
     </div>
     <!-- /.modal-content -->
   </div>
