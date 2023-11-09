@@ -30,32 +30,41 @@
 
             <div class="card">
               <div class="card-header">
+                <form id="filterSalesmen">
+                  @csrf
                   <div class="row">
                     <div class="col-md-2">
                       <label>Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="name">
                     </div>
                     <div class="col-md-3">
                       <label>Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" class="form-control" name="email">
                     </div>
                     <div class="col-md-2">
                       <label>Phone#</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="mobile">
                     </div>
                     <div class="col-md-2">
                       <label>Zone</label>
-                      <select class="form-control">
+                      <select class="form-control form-control-lg select2" name="zone_id">
                         <option value="">All</option>
+                        @foreach($zones as $val)
+                          <option value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
                       </select>
                     </div>
-                    <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32"><i class="fas fa-search"></i></a>
+                    <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
+                      <button type="submit" class="btn btn-info mt-32"><i class="fas fa-search"></i></button>
+                      <div class="reset_button">
+                        
+                      </div>
                     </div>
                     <div class="col-md-2">
                       <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Salesmen" data-toggle="modal" data-target="#addSalesmanModal"><i class="fas fa-plus"></i> Add Salesmen</a>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
             <div class="card">
@@ -121,13 +130,13 @@
             <div class="col-md-7">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" required>
+                <input type="text" class="form-control" name="name" autocomplete="off" required>
               </div>
             </div>
             <div class="col-md-5">
               <div class="form-group">
                 <label>Emirates ID</label>
-                <input type="text" class="form-control" name="eid" required>
+                <input type="text" class="form-control" name="eid" autocomplete="off" required>
               </div>
             </div>
           </div>
@@ -135,13 +144,13 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label>D.O.B</label>
-                <input type="date" class="form-control" name="dob" required>
+                <input type="date" class="form-control" name="dob" autocomplete="off" required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Gender</label>
-                <select class="form-control" name="gender" required>
+                <select class="form-control" name="gender" autocomplete="off" required>
                   <option>Male</option>
                   <option>Female</option>
                 </select>
@@ -150,7 +159,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label>Mobile#</label>
-                <input type="text" class="form-control" name="mobile" required>
+                <input type="text" class="form-control" name="mobile" autocomplete="off" required>
               </div>
             </div>
           </div>
@@ -159,19 +168,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" required>
+                <input type="email" class="form-control" name="email" autocomplete="off" required>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="password" required>
+                <input type="password" class="form-control" name="password" autocomplete="off" required>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" class="form-control" name="confirm_password" required>
+                <input type="password" class="form-control" name="confirm_password" autocomplete="off" required>
               </div>
             </div>
           </div>
@@ -194,6 +203,17 @@
           <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
       </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="editSalesmanModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
     </div>
     <!-- /.modal-content -->
   </div>
@@ -246,8 +266,8 @@
           });
           form.trigger("reset");
           $('#addSalesmanModal').modal('hide');
-          $('.select2').select2('val', '');
-          loadSalesmen()
+          $('.select2').val(null).trigger('change');
+          loadSalesmen();
         }else{
           Toast.fire({
             icon: 'error',
@@ -259,6 +279,138 @@
       event.preventDefault();
     });
 
+    $(document).on('change', '.statusSalesman', function() {
+      var id = $(this).data('id');
+      var checkbox = $(this);
+      var msg = '';
+      var status = 0;
+        if(this.checked) {
+          status = 1;
+          msg = "This user will able to login and access the panel!";
+        }else{
+          status = 0;
+          msg = "This salesman will not be able to login!";
+        }
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: msg,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirm'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var url = '{{URL::to("/salesmen/statusChange/")}}/'+id+'/'+status;
+          $.get(url, function(data){
+            Toast.fire({
+              icon: 'success',
+              title: data
+            });
+          });
+        }else{
+          if(status == 1){
+            checkbox.prop('checked', false);
+          }else{
+            checkbox.prop('checked', true);
+          }
+        }
+      });
+
+    });
+
+
+    $(document).on('click', '.deleteSalesman', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/salesmen/delete')}}/"+id, function(data){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! Salesman Successfully Deleted.'
+                });
+                //$("#customerTable").destroy();
+                loadSalesmen();
+          });
+        }
+      });
+    });
+
+
+
+    $(document).on('click', '.editSalesman', function(){
+      var id = $(this).data('id');
+      var url = '{{URL::to("/salesmen/edit/")}}/'+id;
+      $.get(url, function(data){
+        $('#editSalesmanModal .modal-content').html(data);
+        $('.working_zone_select').select2();
+      });
+      $('#editSalesmanModal').modal('show');
+    });
+
+
+    $(document).on('submit', '#editSalesmanForm', function (event) {
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('#editSalesmanModal').modal('hide');
+          loadSalesmen();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    $("#filterSalesmen").submit(function (event) {
+      $('#salesmenTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('salesmen.filter')}}";
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        encode: true,
+      }).done(function (data) {
+        $('#salesmenTableBody').html(data);
+        $("#salesmenTable").DataTable();
+        $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
+      });
+
+      event.preventDefault();
+    }); 
+
+    $(document).on('click', '.reset_filter', function(){
+      loadSalesmen();
+      $("#filterSalesmen").trigger('reset');
+      $('.reset_button').html('');
+    });
   });
 
 

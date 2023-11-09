@@ -79,6 +79,7 @@ Route::middleware('userAuth')->group(function(){
         Route::get('/view/{id}', 'SalesmenController@view');
         Route::get('/edit/{id}', 'SalesmenController@edit');
         Route::get('/delete/{id}', 'SalesmenController@delete');
+        Route::get('/statusChange/{id}/{status}', 'SalesmenController@statusChange');
         Route::post('/create', 'SalesmenController@create')->name('salesmen.create');
         Route::post('/update', 'SalesmenController@salesmen_update')->name('salesmen.update');
         Route::post('/filter', 'SalesmenController@salesmen_filter')->name('salesmen.filter');
