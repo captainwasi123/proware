@@ -149,17 +149,17 @@ class SalesmenController extends Controller
     public function salesmen_filter(Request $request){
         $req = $request->all();
         $data = User::when(!empty($req['name']), function ($q) use ($req) {
-                    return $q->where('name','like',  '%'.$req['name'].'%');
-                })->when(!empty($req['email']), function ($q) use ($req) {
-                    return $q->where('email','=', $req['email']);
-                })->when(!empty($req['phone']), function ($q) use ($req) {
-                    return $q->where('mobile','=', $req['phone']);
-                })->when(!empty($req['zone_id']), function ($q) use ($req) {
-                    return $q->whereHas('zones', function($qq) use($req) {
-                                return  $qq->where('zone_id','=', $req['zone_id']);
-                            });
-                })->where('created_by', Auth::id())
-                ->get();
+                        return $q->where('name','like',  '%'.$req['name'].'%');
+                    })->when(!empty($req['email']), function ($q) use ($req) {
+                        return $q->where('email','=', $req['email']);
+                    })->when(!empty($req['phone']), function ($q) use ($req) {
+                        return $q->where('mobile','=', $req['phone']);
+                    })->when(!empty($req['zone_id']), function ($q) use ($req) {
+                        return $q->whereHas('zones', function($qq) use($req) {
+                                    return  $qq->where('zone_id','=', $req['zone_id']);
+                                });
+                    })->where('created_by', Auth::id())
+                    ->get();
 
         return view('salesmen.load', ['data' => $data]);
     }

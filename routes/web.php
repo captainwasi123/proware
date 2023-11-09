@@ -84,6 +84,21 @@ Route::middleware('userAuth')->group(function(){
         Route::post('/update', 'SalesmenController@salesmen_update')->name('salesmen.update');
         Route::post('/filter', 'SalesmenController@salesmen_filter')->name('salesmen.filter');
     });
+
+
+    //Profile
+    Route::prefix('profile')->group(function(){
+        Route::get('/', 'ProfileController@index')->name('profile');
+        Route::get('/load', 'ProfileController@load')->name('profile.load');
+        Route::get('/view/{id}', 'ProfileController@view');
+        Route::get('/edit/{id}', 'ProfileController@edit');
+        Route::get('/delete/{id}', 'ProfileController@delete');
+        Route::get('/statusChange/{id}/{status}', 'ProfileController@statusChange');
+        Route::post('/create', 'ProfileController@create')->name('profile.create');
+        Route::post('/update', 'ProfileController@salesmen_update')->name('profile.update');
+        Route::post('/filter', 'ProfileController@salesmen_filter')->name('profile.filter');
+    });
+
 });
 
 
