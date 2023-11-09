@@ -85,7 +85,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{URL::to('/salesmen')}}" class="nav-link">
+            <a href="{{route('salesmen')}}" class="nav-link {{$menu == 'salesmen' ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Sales-Men

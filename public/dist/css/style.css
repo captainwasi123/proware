@@ -110,7 +110,43 @@ input[type="file"]{
     display: none;
 }
 .viewModalText {
-    border-left: 1px solid #777;
-    padding-left: 10px;
-    border-radius: 6px;
+    margin-bottom: 0;
+    line-height: 20px;
+}
+.viewModalText a {
+    font-size: 16px;
+}
+.viewModalText label {
+    margin-top: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.viewModalText i {
+    font-size: 13px;
+    color: lightseagreen;
+}
+.contact_person {
+    background-color: #e6e6e6;
+    padding: 12px;
+    border-radius: 5px;
+}
+.contact_person label, .contact_person .viewModalText {
+    color: #000;
+}
+.contact_person .viewModalText{
+    margin-bottom: 5px;
+}
+
+.contact_person {
+    background-color: #e6e6e6;
+    padding: 12px;
+    border-radius: 5px;
+    border-left: 3px solid #99A;
+}
+.select2-selection__choice {
+    background-color: #17a2b8 !important;
+    border: none !important;
+}
+.select2-selection__choice__remove {
+    color: #fff !important;
 }

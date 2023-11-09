@@ -70,6 +70,19 @@ Route::middleware('userAuth')->group(function(){
             Route::get('/delete/{id}', 'BrandController@delete')->name('products.brands.delete');
         });
     });
+
+
+    //Salesmen
+    Route::prefix('salesmen')->group(function(){
+        Route::get('/', 'SalesmenController@index')->name('salesmen');
+        Route::get('/load', 'SalesmenController@load')->name('salesmen.load');
+        Route::get('/view/{id}', 'SalesmenController@view');
+        Route::get('/edit/{id}', 'SalesmenController@edit');
+        Route::get('/delete/{id}', 'SalesmenController@delete');
+        Route::post('/create', 'SalesmenController@create')->name('salesmen.create');
+        Route::post('/update', 'SalesmenController@salesmen_update')->name('salesmen.update');
+        Route::post('/filter', 'SalesmenController@salesmen_filter')->name('salesmen.filter');
+    });
 });
 
 
@@ -81,9 +94,5 @@ Route::get('/orders', function () {
     return view('salesManager.orders');
 });
 
-
-Route::get('/salesmen', function () {
-    return view('salesManager.salesmen');
-});
 
 

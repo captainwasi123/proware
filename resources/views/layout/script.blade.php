@@ -32,3 +32,5 @@
 <script src="{{URL::to('/public')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{URL::to('/public')}}/dist/js/pages/dashboard.js"></script>
+<!-- SweetAlert2 -->
+<script src="{{URL::to('/public')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
