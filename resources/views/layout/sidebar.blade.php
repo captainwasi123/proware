@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{URL::to('/inquiries')}}" class="nav-link">
+            <a href="{{URL::to('/inquiries')}}" class="nav-link {{$menu == 'inquiries' ? 'active' : ''}}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Inquiries
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{URL::to('/orders')}}" class="nav-link">
+            <a href="{{URL::to('/orders')}}" class="nav-link {{$menu == 'orders' ? 'active' : ''}}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Orders

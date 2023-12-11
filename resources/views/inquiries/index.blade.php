@@ -492,122 +492,122 @@
 <div class="modal fade" id="modal-lg">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add Inquiry</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Customer</p>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Name</label>
-              <select class="form-control form-control-lg select2" style="width: 100%;">
-                <option selected="selected">Alabama</option>
-                <option>Alaska</option>
-                <option>California</option>
-                <option>Delaware</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Phone</label>
-              <input type="text" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label>Address</label>
-              <input type="text" class="form-control" disabled>
-            </div>
-          </div>
+      <form id="add_inquiry_form" action="{{route('inquiries.create')}}">
+        @csrf
+        <div class="modal-header">
+          <h4 class="modal-title">Add Inquiry</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="form-heading">Customer</p>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name</label>
+                <select class="form-control form-control-lg select2" id="add_customer_name_field" style="width: 100%;">
+                  <option disabled selected>Select</option>
+                  @foreach($customers as $val)
+                    <option value="{{$val->id}}">{{$val->name.'  ( '.$val->contact_person.' - '.$val->contact_person_mobile.' )'}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="add_customer_email" disabled>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" id="add_customer_phone" disabled>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" id="add_customer_address" disabled>
+              </div>
+            </div>
+          </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Products</p>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Name</label>
-              <select class="form-control form-control-lg select2" style="width: 100%;">
-                <option selected="selected">Alabama</option>
-                <option>Alaska</option>
-                <option>California</option>
-                <option>Delaware</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
-              </select>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="form-heading">Products</p>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name</label>
+                <select class="form-control form-control-lg select2" style="width: 100%;">
+                  <option selected="selected">Alabama</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Brand</label>
+                <input type="email" class="form-control" disabled>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Category</label>
+                <input type="text" class="form-control" disabled>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" class="form-control" value="1">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Price</label>
+                <input type="number" class="form-control" disabled>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+                <button class="btn btn-primary mt-23 pull-right"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Brand</label>
-              <input type="email" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Category</label>
-              <input type="text" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <div class="form-group">
-              <label>Quantity</label>
-              <input type="number" class="form-control" value="1">
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Price</label>
-              <input type="number" class="form-control" disabled>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <div class="form-group">
-              <button class="btn btn-primary mt-23 pull-right"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <p class="form-heading">Additional Information</p>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Description</label>
-              <textarea class="form-control" rows="5"></textarea>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="form-heading">Additional Information</p>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Special Remarks</label>
-              <textarea class="form-control" rows="5"></textarea>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Special Remarks</label>
+                <textarea class="form-control" rows="5"></textarea>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
     </div>
     <!-- /.modal-content -->
   </div>
@@ -618,7 +618,6 @@
 <!-- DataTables -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -629,14 +628,6 @@
 <script src="{{URL::to('/public')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{URL::to('/public')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{URL::to('/public')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/jszip/jszip.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="{{URL::to('/public')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="{{URL::to('/public')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- Select2 -->
 <script src="{{URL::to('/public')}}/plugins/select2/js/select2.full.min.js"></script>
@@ -650,6 +641,7 @@
       "buttons": ["excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+    $
   });
 </script>
 @endsection
