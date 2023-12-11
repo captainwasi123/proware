@@ -1,7 +1,7 @@
 @foreach($data as $key => $val)
 	<tr>
         <td>{{++$key}}</td>
-        <td><img src="{{URL::to('/public/storage/products/'.$val->image)}}" height="30px">&nbsp; <strong>{{$val->name}}</strong></td>
+        <td><strong>{{$val->name}}</strong></td>
         <td>{{empty($val->brand) ? '-' : $val->brand->name}}</td>
         <td>{{empty($val->category) ? '-' : $val->category->name}}</td>
         <td>{{number_format($val->price)}} AED</td>

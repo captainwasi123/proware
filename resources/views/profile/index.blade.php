@@ -71,7 +71,7 @@
                 <div class="tab-content">
                   
                   <div class="active tab-pane" id="personal_info">
-                    <form class="form-horizontal" id="personal_info_form">
+                    <form class="form-horizontal" id="personal_info_form" action="{{route('profile.update')}}">
                       @csrf
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
@@ -112,23 +112,23 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="change_password">
-                    <form class="form-horizontal" id="change_password_form">
+                    <form class="form-horizontal" id="change_password_form" action="{{route('profile.change_password')}}">
                       @csrf
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Current Password</label>
-                        <div class="col-sm-10">
+                        <label for="inputName" class="col-sm-4 col-form-label">Current Password</label>
+                        <div class="col-sm-8">
                           <input type="password" class="form-control" name="current_password" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">New Password</label>
-                        <div class="col-sm-10">
+                        <label for="inputName" class="col-sm-4 col-form-label">New Password</label>
+                        <div class="col-sm-8">
                           <input type="password" class="form-control" name="new_password" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Confirm Password</label>
-                        <div class="col-sm-10">
+                        <label for="inputName" class="col-sm-4 col-form-label">Confirm Password</label>
+                        <div class="col-sm-8">
                           <input type="password" class="form-control" name="confirm_password" required>
                         </div>
                       </div>
@@ -164,7 +164,67 @@
 
 <script>
   $(function () {
-  
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000
+    });
+
+
+    $("#personal_info_form").submit(function (event) {
+      var form=$(this);
+
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+    $("#change_password_form").submit(function (event) {
+      var form=$(this);
+
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger('reset');
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
   });
 </script>
 @endsection

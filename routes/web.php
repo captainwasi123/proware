@@ -24,6 +24,19 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::middleware('userAuth')->group(function(){
     Route::get('/', 'MainController@index')->name('dashboard');
 
+    //Inquiries
+    Route::prefix('inquiries')->group(function(){
+        Route::get('/', 'InquiriesController@index')->name('inquiries');
+        Route::get('/load', 'InquiriesController@load')->name('inquiries.load');
+        Route::get('/view/{id}', 'InquiriesController@view');
+        Route::get('/edit/{id}', 'InquiriesController@edit');
+        Route::get('/delete/{id}', 'InquiriesController@delete');
+        Route::post('/create', 'InquiriesController@create')->name('inquiries.create');
+        Route::post('/update', 'InquiriesController@customer_update')->name('inquiries.update');
+        Route::post('/filter', 'InquiriesController@customer_filter')->name('inquiries.filter');
+    });
+
+
     //Customers
     Route::prefix('customers')->group(function(){
         Route::get('/', 'CustomerController@index')->name('customers');
@@ -89,14 +102,8 @@ Route::middleware('userAuth')->group(function(){
     //Profile
     Route::prefix('profile')->group(function(){
         Route::get('/', 'ProfileController@index')->name('profile');
-        Route::get('/load', 'ProfileController@load')->name('profile.load');
-        Route::get('/view/{id}', 'ProfileController@view');
-        Route::get('/edit/{id}', 'ProfileController@edit');
-        Route::get('/delete/{id}', 'ProfileController@delete');
-        Route::get('/statusChange/{id}/{status}', 'ProfileController@statusChange');
-        Route::post('/create', 'ProfileController@create')->name('profile.create');
-        Route::post('/update', 'ProfileController@salesmen_update')->name('profile.update');
-        Route::post('/filter', 'ProfileController@salesmen_filter')->name('profile.filter');
+        Route::post('/update', 'ProfileController@profile_update')->name('profile.update');
+        Route::post('/changePassword', 'ProfileController@change_password')->name('profile.change_password');
     });
 
 });
