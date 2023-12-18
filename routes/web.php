@@ -34,6 +34,9 @@ Route::middleware('userAuth')->group(function(){
         Route::post('/create', 'InquiriesController@create')->name('inquiries.create');
         Route::post('/update', 'InquiriesController@customer_update')->name('inquiries.update');
         Route::post('/filter', 'InquiriesController@customer_filter')->name('inquiries.filter');
+
+        Route::get('/get_customer/{id}', 'InquiriesController@get_customer');
+        Route::get('/get_product/{id}', 'InquiriesController@get_product');
     });
 
 
