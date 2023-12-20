@@ -1,6 +1,6 @@
 <form id="edit_inquiry_form" action="{{route('inquiries.update')}}">
   @csrf
-  <input type="hidden" value="{{$inquiry->id}}">
+  <input type="hidden" name="inq_id" value="{{$inquiry->id}}">
   <div class="modal-header">
     <h4 class="modal-title">Edit Inquiry</h4>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -47,49 +47,91 @@
       <div class="col-md-12">
         <p class="form-heading">Products</p>
       </div>
-      <div class="col-md-12" id="add_customer_product_tray">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Name</label>
-              <select class="form-control form-control-lg select2 add_customer_add_product_name" style="width: 100%;" name="product[]" required>
-                <option selected="selected" disabled>Select</option>
-                @foreach($products as $val)
-                  <option value="{{$val->id}}">{{$val->name}}</option>
-                @endforeach
-              </select>
+      <div class="col-md-12" id="edit_customer_product_tray">
+        @foreach($inquiry->products as $key => $val)
+          @if($key == 0)
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Name</label>
+                  <select class="form-control form-control-lg select2 edit_customer_add_product_name" style="width: 100%;" name="product[]" required>
+                    <option selected="selected" disabled>Select</option>
+                    @foreach($products as $pval)
+                      <option value="{{$pval->id}}" {{$pval->id == $val->product_id ? 'selected' : ''}}>{{$pval->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label>Brand</label>
+                  <input type="text" class="form-control edit_customer_add_brand" value="{{$val->product->brand->name}}" disabled>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label>Category</label>
+                  <input type="text" class="form-control edit_customer_add_category" value="{{$val->product->category->name}}" disabled>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="form-group">
+                  <label>Quantity</label>
+                  <input type="number" class="form-control edit_customer_add_qty" value="{{$val->quantity}}" name="qty[]" required>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="text" class="form-control edit_customer_add_price" value="{{number_format($val->price, 2)}}" name="price[]" readonly>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="form-group">
+                  <button type="button" class="btn btn-primary mt-23 pull-right edit_customer_add_product"><i class="fas fa-plus"></i></button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Brand</label>
-              <input type="text" class="form-control add_customer_add_brand" disabled>
+          @else
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <select class="form-control form-control-lg select2 edit_customer_add_product_name" style="width: 100%;" name="product[]" required>
+                    <option selected="selected" disabled>Select</option>
+                    @foreach($products as $pval)
+                      <option value="{{$pval->id}}" {{$pval->id == $val->product_id ? 'selected' : ''}}>{{$pval->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <input type="text" class="form-control edit_customer_add_brand" value="{{$val->product->brand->name}}" disabled>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <input type="text" class="form-control edit_customer_add_category" value="{{$val->product->category->name}}" disabled>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="form-group">
+                  <input type="number" class="form-control edit_customer_add_qty" value="{{$val->quantity}}" name="qty[]" required>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <input type="text" class="form-control edit_customer_add_price" name="price[]" value="{{number_format($val->price, 2)}}" readonly>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="form-group">
+                  <button type="button" class="btn btn-danger pull-right edit_customer_remove_product"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Category</label>
-              <input type="text" class="form-control add_customer_add_category" disabled>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <div class="form-group">
-              <label>Quantity</label>
-              <input type="number" class="form-control add_customer_add_qty" value="1" name="qty[]" required>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label>Price</label>
-              <input type="text" class="form-control add_customer_add_price" name="price[]" readonly>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <div class="form-group">
-              <button type="button" class="btn btn-primary mt-23 pull-right add_customer_add_product"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
+          @endif
+        @endforeach
       </div>
     </div>
 

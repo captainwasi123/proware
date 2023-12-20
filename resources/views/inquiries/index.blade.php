@@ -30,31 +30,40 @@
 
             <div class="card">
               <div class="card-header">
+                <form id="filterInquiries">
+                  @csrf
                   <div class="row">
                     <div class="col-md-2">
                       <label>From</label>
-                      <input type="date" class="form-control">
+                      <input type="date" name="from_date" class="form-control">
                     </div>
                     <div class="col-md-2">
                       <label>To</label>
-                      <input type="date" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                      <label>Salesman</label>
-                      <select class="form-control">
-                        <option value="">All</option>
-                      </select>
-                    </div>
-                    <div class="col-md-1">
-                      <a href="javascript:void(0)" class="btn btn-info mt-32" title="Add Inquiry"><i class="fas fa-search"></i></a>
+                      <input type="date" name="to_date" class="form-control">
                     </div>
                     <div class="col-md-3">
+                      <label>Salesman</label>
+                      <select class="form-control" name="salesman">
+                        <option value="">All</option>
+                        @foreach($salesmen as $val)
+                          <option value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
+                      <button type="submit" class="btn btn-info mt-32"><i class="fas fa-search"></i></button>
+                      <div class="reset_button">
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-2">
                       
                     </div>
                     <div class="col-md-2">
                       <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Inquiry" data-toggle="modal" data-target="#addInquiryFormModal"><i class="fas fa-plus"></i> Add Inquiry</a>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
             <div class="card">
@@ -393,6 +402,86 @@
       });
 
       //alert(val);
+    });
+
+
+    $(document).on('click', '.edit_customer_add_product', function(){
+      $('#edit_customer_product_tray').append('<div class="row"> <div class="col-md-4"> <div class="form-group"> <select class="form-control form-control-lg select2 add_customer_add_product_name" style="width: 100%;" name="product[]" required> <option selected="selected" disabled>Select</option> @foreach($products as $val) <option value="{{$val->id}}">{{$val->name}}</option> @endforeach </select> </div> </div> <div class="col-md-2"> <div class="form-group"> <input type="text" class="form-control edit_customer_add_brand" disabled> </div> </div> <div class="col-md-2"> <div class="form-group"> <input type="text" class="form-control add_customer_add_category" disabled> </div> </div> <div class="col-md-1"> <div class="form-group"> <input type="number" class="form-control edit_customer_add_qty" name="qty[]" value="1" required> </div> </div> <div class="col-md-2"> <div class="form-group"> <input type="text" class="form-control edit_customer_add_price" name="price[]" readonly> </div> </div> <div class="col-md-1"> <div class="form-group"> <button type="button" class="btn btn-danger pull-right edit_customer_remove_product"><i class="fas fa-minus"></i></button> </div> </div> </div>');
+
+      $('.select2').select2();
+    });
+
+    $(document).on('change', '.edit_customer_add_product_name', function(){
+      var ele = $(this).parent().parent().parent();
+      var val = $(this).val();
+
+      $.getJSON("{{URL::to('/inquiries/get_product/')}}/"+val, function(data){
+        if(data.success == 'success'){
+
+          $(ele).find('.edit_customer_add_brand').val(data.data.brand);
+          $(ele).find('.edit_customer_add_category').val(data.data.category);
+          $(ele).find('.edit_customer_add_price').val( data.data.price);
+          
+        }
+      });
+    });
+
+    $(document).on('click', '.edit_customer_remove_product', function(){
+      $(this).parent().parent().parent().remove();
+    });
+
+
+
+    $(document).on("submit", "#edit_inquiry_form", function (event) {
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        //console.log(data);
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('#editInquiryFormModal').modal('hide');
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+    $("#filterInquiries").submit(function (event) {
+      $('#inquiriesTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('inquiries.filter')}}";
+      var form=$(this);
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        encode: true,
+      }).done(function (data) {
+        $('#inquiriesTableBody').html(data);
+        $("#inquiriesTable").DataTable();
+        $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
+      });
+
+      event.preventDefault();
+    }); 
+
+
+    $(document).on('click', '.reset_filter', function(){
+      loadInquiries();
+      $("#filterInquiries").trigger('reset');
+      $('.reset_button').html('');
     });
   });
 

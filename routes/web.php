@@ -30,10 +30,10 @@ Route::middleware('userAuth')->group(function(){
         Route::get('/load', 'InquiriesController@load')->name('inquiries.load');
         Route::get('/view/{id}', 'InquiriesController@view');
         Route::get('/edit/{id}', 'InquiriesController@edit');
-        Route::get('/delete/{id}', 'InquiriesController@delete');
+        //Route::get('/delete/{id}', 'InquiriesController@delete');
         Route::post('/create', 'InquiriesController@create')->name('inquiries.create');
-        Route::post('/update', 'InquiriesController@customer_update')->name('inquiries.update');
-        Route::post('/filter', 'InquiriesController@customer_filter')->name('inquiries.filter');
+        Route::post('/update', 'InquiriesController@inquiry_update')->name('inquiries.update');
+        Route::post('/filter', 'InquiriesController@inquiries_filter')->name('inquiries.filter');
 
         Route::get('/get_customer/{id}', 'InquiriesController@get_customer');
         Route::get('/get_product/{id}', 'InquiriesController@get_product');

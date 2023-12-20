@@ -7,6 +7,8 @@ use App\Models\Customers;
 use App\Models\Products;
 use App\Models\Inquiries;
 use App\Models\InquiryDetails;
+use App\Models\User;
+use Auth;
 
 class InquiriesController extends Controller
 {
@@ -14,9 +16,26 @@ class InquiriesController extends Controller
         $data['menu'] = 'inquiries';
         $data['customers'] = Customers::select(['id', 'name', 'contact_person', 'contact_person_mobile'])->get();
         $data['products'] = Products::all();
+        $data['salesmen'] = User::select(['id', 'name',])
+                                    ->where('type', '2')
+                                    ->where('created_by', Auth::id())
+                                    ->get();
         
         //dd($data);
         return view('inquiries.index')->with($data);
+    }
+
+    public function inquiries_filter(Request $request){
+        $req = $request->all();
+        $data = Inquiries::when(!empty($req['salesman']), function ($q) use ($req) {
+                    return $q->where('created_by', $req['salesman']);
+                })->when(!empty($req['from_date']), function ($q) use ($req) {
+                    return $q->where('created_at','>=', date('Y-m-d H:i:s', strtotime($req['from_date'].' 00:00:01')));
+                })->when(!empty($req['to_date']), function ($q) use ($req) {
+                    return $q->where('created_at','<=', date('Y-m-d H:i:s', strtotime($req['to_date'].' 23:59:59')));
+                })->get();
+
+        return view('inquiries.load', ['data' => $data]);
     }
 
     public function load(){
@@ -56,6 +75,23 @@ class InquiriesController extends Controller
         
         //dd($data);
         return view('inquiries.edit')->with($data);
+    }
+
+    public function inquiry_update(Request $request){
+        $data = $request->all();
+        $response = [];
+        if (empty($data['customer']) || count($data['product']) == 0) {
+            $response['success'] = 'error';
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            $id = Inquiries::inquiry_update($data);
+
+            $response['success'] = 'success';
+            $response['message'] = 'Inquiries Successfully Updated.';
+
+        }
+
+        echo json_encode($response);
     }
 
 
