@@ -40,6 +40,22 @@ Route::middleware('userAuth')->group(function(){
     });
 
 
+    //Orders
+    Route::prefix('orders')->group(function(){
+        Route::get('/', 'OrderController@index')->name('orders');
+        Route::get('/load', 'OrderController@load')->name('orders.load');
+        Route::get('/view/{id}', 'OrderController@view');
+        Route::get('/edit/{id}', 'OrderController@edit');
+        //Route::get('/delete/{id}', 'OrderController@delete');
+        Route::post('/create', 'OrderController@create')->name('orders.create');
+        Route::post('/update', 'OrderController@inquiry_update')->name('orders.update');
+        Route::post('/filter', 'OrderController@inquiries_filter')->name('orders.filter');
+
+        Route::get('/get_customer/{id}', 'OrderController@get_customer');
+        Route::get('/get_product/{id}', 'OrderController@get_product');
+    });
+
+
     //Customers
     Route::prefix('customers')->group(function(){
         Route::get('/', 'CustomerController@index')->name('customers');
@@ -109,11 +125,6 @@ Route::middleware('userAuth')->group(function(){
         Route::post('/changePassword', 'ProfileController@change_password')->name('profile.change_password');
     });
 
-});
-
-
-Route::get('/orders', function () {
-    return view('salesManager.orders');
 });
 
 
