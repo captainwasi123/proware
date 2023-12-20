@@ -4,7 +4,7 @@
     <div class="col-12">
       <h4>
         <i class="fas fa-globe"></i> {{env('COMPANY_NAME')}}
-        <small class="float-right text-right"><b>Inquiry #{{sprintf("%'.05d\n", $data->id)}}</b><br>Date: {{date('d-M-Y', strtotime($data->created_at))}}</small>
+        <small class="float-right text-right"><b>Order #{{sprintf("%'.05d\n", $data->id)}}</b><br>Date: {{date('d-M-Y', strtotime($data->created_at))}}</small>
       </h4>
     </div>
     <!-- /.col -->

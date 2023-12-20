@@ -30,7 +30,7 @@
 
             <div class="card">
               <div class="card-header">
-                <form id="filterInquiries">
+                <form id="filterOrders">
                   @csrf
                   <div class="row">
                     <div class="col-md-2">
@@ -50,14 +50,21 @@
                         @endforeach
                       </select>
                     </div>
+                    <div class="col-md-2">
+                      <label>Status</label>
+                      <select class="form-control" name="salesman">
+                        <option value="">All</option>
+                        <option value="1">Pending</option>
+                        <option value="2">Delivered</option>
+                        <option value="3">Cancelled</option>
+                        <option value="4">Rejected</option>
+                      </select>
+                    </div>
                     <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
                       <button type="submit" class="btn btn-info mt-32"><i class="fas fa-search"></i></button>
                       <div class="reset_button">
                         
                       </div>
-                    </div>
-                    <div class="col-md-2">
-                      
                     </div>
                     <div class="col-md-2">
                       <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Order" data-toggle="modal" data-target="#addOrderFormModal"><i class="fas fa-plus"></i> Add Order</a>
@@ -69,7 +76,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="inquiriesTable" class="table table-bordered table-striped">
+                <table id="ordersTable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Inq#</th>
@@ -78,10 +85,11 @@
                     <th>Zone</th>
                     <th>Salesman</th>
                     <th>No. of Products</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody id="inquiriesTableBody">
+                  <tbody id="ordersTableBody">
                   
                   </tbody>
                   <tfoot>
@@ -92,6 +100,7 @@
                     <th>Zone</th>
                     <th>Salesman</th>
                     <th>No. of Products</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>
@@ -237,7 +246,7 @@
 
 
 
-<div class="modal fade" id="editInquiryFormModal">
+<div class="modal fade" id="editOrderFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       
@@ -247,11 +256,11 @@
   <!-- /.modal-dialog -->
 </div>
 
-<div class="modal fade" id="viewInquiryFormModal">
+<div class="modal fade" id="viewOrderFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Inquiry Details</h4>
+          <h4 class="modal-title">Order Details</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -286,7 +295,7 @@
 <script>
   $(function () {
     $('.select2').select2();
-    loadInquiries();
+    loadOrders();
 
     var Toast = Swal.mixin({
       toast: true,
@@ -335,7 +344,7 @@
       });
     });
 
-    $("#add_inquiry_form").submit(function (event) {
+    $("#add_order_form").submit(function (event) {
       var form=$(this);
       $.ajax({
         type: "POST",
@@ -364,27 +373,27 @@
       event.preventDefault();
     });
 
-    $(document).on('click', '.viewInquiry', function(){
+    $(document).on('click', '.viewOrder', function(){
       var val = $(this).data('id');
 
-      $('#viewInquiryFormModal .modal-body').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
-      $('#viewInquiryFormModal').modal('show');
+      $('#viewOrderFormModal .modal-body').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#viewOrderFormModal').modal('show');
 
-      $.get("{{URL::to('/inquiries/view')}}/"+val, function(data){
-        $('#viewInquiryFormModal .modal-body').html(data);
+      $.get("{{URL::to('/orders/view')}}/"+val, function(data){
+        $('#viewOrderFormModal .modal-body').html(data);
       });
     });
 
 
 
-    $(document).on('click', '.editInquiry', function(){
+    $(document).on('click', '.editOrder', function(){
       var val = $(this).data('id');
 
-      $('#editInquiryFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
-      $('#editInquiryFormModal').modal('show');
+      $('#editOrderFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editOrderFormModal').modal('show');
 
-      $.get("{{URL::to('/inquiries/edit')}}/"+val, function(data){
-        $('#editInquiryFormModal .modal-content').html(data);
+      $.get("{{URL::to('/orders/edit')}}/"+val, function(data){
+        $('#editOrderFormModal .modal-content').html(data);
         $('.select2').select2();
       });
     });
@@ -432,7 +441,7 @@
 
 
 
-    $(document).on("submit", "#edit_inquiry_form", function (event) {
+    $(document).on("submit", "#edit_order_form", function (event) {
       var form=$(this);
       $.ajax({
         type: "POST",
@@ -447,7 +456,7 @@
             icon: 'success',
             title: data.message
           });
-          $('#editInquiryFormModal').modal('hide');
+          $('#editOrderFormModal').modal('hide');
         }else{
           Toast.fire({
             icon: 'error',
@@ -459,9 +468,9 @@
       event.preventDefault();
     });
 
-    $("#filterInquiries").submit(function (event) {
-      $('#inquiriesTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
-      var url = "{{route('inquiries.filter')}}";
+    $("#filterOrders").submit(function (event) {
+      $('#ordersTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('orders.filter')}}";
       var form=$(this);
       $.ajax({
         type: "POST",
@@ -469,8 +478,8 @@
         data: form.serialize(),
         encode: true,
       }).done(function (data) {
-        $('#inquiriesTableBody').html(data);
-        $("#inquiriesTable").DataTable();
+        $('#ordersTableBody').html(data);
+        $("#ordersTable").DataTable();
         $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
       });
 
@@ -479,22 +488,22 @@
 
 
     $(document).on('click', '.reset_filter', function(){
-      loadInquiries();
-      $("#filterInquiries").trigger('reset');
+      loadOrders();
+      $("#filterOrders").trigger('reset');
       $('.reset_button').html('');
     });
   });
 
 
-  function loadInquiries(){
-    var url = "{{route('inquiries.load')}}";
+  function loadOrders(){
+    var url = "{{route('orders.load')}}";
 
-    $('#inquiriesTableBody').html('<tr class="text-center"><td colspan="7"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $('#ordersTableBody').html('<tr class="text-center"><td colspan="7"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){
 
-      $('#inquiriesTableBody').html(data);
+      $('#ordersTableBody').html(data);
 
-      $("#inquiriesTable").DataTable();
+      $("#ordersTable").DataTable();
     });
   }
 </script>

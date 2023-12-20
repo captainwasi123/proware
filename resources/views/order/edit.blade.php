@@ -1,8 +1,8 @@
-<form id="edit_inquiry_form" action="{{route('inquiries.update')}}">
+<form id="edit_order_form" action="{{route('orders.update')}}">
   @csrf
-  <input type="hidden" name="inq_id" value="{{$inquiry->id}}">
+  <input type="hidden" name="ord_id" value="{{$order->id}}">
   <div class="modal-header">
-    <h4 class="modal-title">Edit Inquiry</h4>
+    <h4 class="modal-title">Edit Order</h4>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -18,7 +18,7 @@
           <select class="form-control form-control-lg select2" id="edit_customer_name_field" name="customer" style="width: 100%;">
             <option disabled selected>Select</option>
             @foreach($customers as $val)
-              <option value="{{$val->id}}" {{$val->id == $inquiry->customer_id ? 'selected' : ''}}>{{$val->name.'  ( '.$val->contact_person.' - '.$val->contact_person_mobile.' )'}}</option>
+              <option value="{{$val->id}}" {{$val->id == $order->customer_id ? 'selected' : ''}}>{{$val->name.'  ( '.$val->contact_person.' - '.$val->contact_person_mobile.' )'}}</option>
             @endforeach
           </select>
         </div>
@@ -26,19 +26,19 @@
       <div class="col-md-4">
         <div class="form-group">
           <label>Email</label>
-          <input type="email" class="form-control" id="edit_customer_email" value="{{$inquiry->customer->email}}" disabled>
+          <input type="email" class="form-control" id="edit_customer_email" value="{{$order->customer->email}}" disabled>
         </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label>Phone</label>
-          <input type="text" class="form-control" id="edit_customer_phone" value="{{$inquiry->customer->landline}}" disabled>
+          <input type="text" class="form-control" id="edit_customer_phone" value="{{$order->customer->landline}}" disabled>
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
           <label>Address</label>
-          <input type="text" class="form-control" id="edit_customer_address" value="{{$inquiry->customer->shop_no.', '.$inquiry->customer->building_floor.', '.$inquiry->customer->zone->name.', '.$inquiry->customer->state->name.', '.$inquiry->customer->country->name}}" disabled>
+          <input type="text" class="form-control" id="edit_customer_address" value="{{$order->customer->shop_no.', '.$order->customer->building_floor.', '.$order->customer->zone->name.', '.$order->customer->state->name.', '.$order->customer->country->name}}" disabled>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
         <p class="form-heading">Products</p>
       </div>
       <div class="col-md-12" id="edit_customer_product_tray">
-        @foreach($inquiry->products as $key => $val)
+        @foreach($order->products as $key => $val)
           @if($key == 0)
             <div class="row">
               <div class="col-md-4">
@@ -142,13 +142,13 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Description</label>
-          <textarea class="form-control" name="description" rows="5">{{$inquiry->description}}</textarea>
+          <textarea class="form-control" name="description" rows="5">{{$order->description}}</textarea>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Special Remarks</label>
-          <textarea class="form-control" name="special_remarks" rows="5">{{$inquiry->special_remarks}}</textarea>
+          <textarea class="form-control" name="special_remarks" rows="5">{{$order->special_remarks}}</textarea>
         </div>
       </div>
     </div>

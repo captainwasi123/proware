@@ -48,8 +48,8 @@ Route::middleware('userAuth')->group(function(){
         Route::get('/edit/{id}', 'OrderController@edit');
         //Route::get('/delete/{id}', 'OrderController@delete');
         Route::post('/create', 'OrderController@create')->name('orders.create');
-        Route::post('/update', 'OrderController@inquiry_update')->name('orders.update');
-        Route::post('/filter', 'OrderController@inquiries_filter')->name('orders.filter');
+        Route::post('/update', 'OrderController@order_update')->name('orders.update');
+        Route::post('/filter', 'OrderController@orders_filter')->name('orders.filter');
 
         Route::get('/get_customer/{id}', 'OrderController@get_customer');
         Route::get('/get_product/{id}', 'OrderController@get_product');
