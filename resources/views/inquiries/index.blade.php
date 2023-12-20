@@ -225,6 +225,36 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+
+
+
+<div class="modal fade" id="editInquiryFormModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="viewInquiryFormModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Inquiry Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 @endsection
 @section('addStyle')
 <!-- DataTables -->
@@ -323,6 +353,46 @@
       });
 
       event.preventDefault();
+    });
+
+    $(document).on('click', '.viewInquiry', function(){
+      var val = $(this).data('id');
+
+      $('#viewInquiryFormModal .modal-body').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#viewInquiryFormModal').modal('show');
+
+      $.get("{{URL::to('/inquiries/view')}}/"+val, function(data){
+        $('#viewInquiryFormModal .modal-body').html(data);
+      });
+    });
+
+
+
+    $(document).on('click', '.editInquiry', function(){
+      var val = $(this).data('id');
+
+      $('#editInquiryFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editInquiryFormModal').modal('show');
+
+      $.get("{{URL::to('/inquiries/edit')}}/"+val, function(data){
+        $('#editInquiryFormModal .modal-content').html(data);
+        $('.select2').select2();
+      });
+    });
+
+    $(document).on('change', '#edit_customer_name_field', function(){
+      var val = $(this).val();
+
+      $.getJSON("{{URL::to('/inquiries/get_customer/')}}/"+val, function(data){
+        if(data.success == 'success'){
+          $('#edit_customer_email').val(data.data.email);
+          $('#edit_customer_phone').val(data.data.phone);
+          $('#edit_customer_address').val(data.data.address);
+          
+        }
+      });
+
+      //alert(val);
     });
   });
 

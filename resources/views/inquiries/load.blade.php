@@ -1,15 +1,15 @@
 @foreach($data as $val)
 <tr>
-  <td>{{$val->id}}</td>
+  <td>{{sprintf("%'.05d\n", $val->id)}}</td>
   <td>{{date('d-M-Y', strtotime($val->created_at))}}</td>
-  <td>Aster Pharmacy</td>
-  <td>Khalidya</td>
-  <td>xyz</td>
-  <td>8</td>
+  <td>{{$val->customer->name}}</td>
+  <td>{{$val->customer->zone->name}}</td>
+  <td>{{$val->salesman->name}}</td>
+  <td>{{count($val->products)}}</td>
   <td class="text-right">
-    <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>
-    <a href="javascript:void(0)" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-    <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+    <a href="javascript:void(0)" class="btn btn-sm btn-default viewInquiry" data-id="{{$val->id}}"><i class="fas fa-eye"></i></a>
+    <a href="javascript:void(0)" class="btn btn-sm btn-info editInquiry" data-id="{{$val->id}}"><i class="fas fa-edit"></i></a>
+    <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
   </td>
 </tr>
 @endforeach

@@ -25,6 +25,13 @@ class InquiriesController extends Controller
         return view('inquiries.load', ['data' => $data]);
     }
 
+
+    public function view($id){
+        $data = Inquiries::find($id);
+
+        return view('inquiries.details', ['data' => $data]);
+    }
+
     public function create(Request $request){
         $data = $request->all();
         $response = [];
@@ -42,6 +49,14 @@ class InquiriesController extends Controller
         echo json_encode($response);
     }
 
+    public function edit($id){
+        $data['customers'] = Customers::select(['id', 'name', 'contact_person', 'contact_person_mobile'])->get();
+        $data['products'] = Products::all();
+        $data['inquiry'] = Inquiries::find($id);
+        
+        //dd($data);
+        return view('inquiries.edit')->with($data);
+    }
 
 
 
