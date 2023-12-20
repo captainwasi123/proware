@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Migration
+Route:get('/migrate', function(){
+    Artisan::call('migrate');
+    Artisan::call('db:seed');
+});
+
 //Authentication
 
 Route::get('/login', 'LoginController@index')->name('login');
