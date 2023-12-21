@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Migration
-Route:get('/migrate', function(){
+Route::get('/migrate', function(){
     Artisan::call('migrate');
     Artisan::call('db:seed');
 });
