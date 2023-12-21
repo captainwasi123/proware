@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 use App\Models\Brands;
 use App\Models\Categories;
+use App\Models\OrderDetails;
 
 class Products extends Model
 {
@@ -50,5 +51,9 @@ class Products extends Model
 
     public function category(){
         return $this->belongsTo(Categories::class, 'category_id', 'id');
+    }
+
+    public function orders(){
+        return $this->hasMany(OrderDetails::class, 'product_id', 'id');
     }
 }

@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\UserZones;
+use App\Models\Orders;
+use App\Models\Inquiries;
 
 class User extends Authenticatable
 {
@@ -52,5 +54,13 @@ class User extends Authenticatable
 
     public function zones(){
         return $this->hasMany(UserZones::class, 'user_id', 'id');
+    }
+
+    public function todays_orders(){
+        return $this->hasMany(Orders::class, 'created_by', 'id')->whereDay('created_at', now()->day);
+    }
+
+    public function todays_inquiries(){
+        return $this->hasMany(Inquiries::class, 'created_by', 'id')->whereDay('created_at', now()->day);
     }
 }
