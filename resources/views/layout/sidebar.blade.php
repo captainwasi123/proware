@@ -97,25 +97,26 @@
               <i class="nav-icon ion ion-stats-bars"></i>
               <p>
                 Reports
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
-                  <p>Products</p>
+                  <p>Coming Soon..</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
-                  <p>Categories</p>
+                  <p>Coming Soon..</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-minus nav-icon"></i>
-                  <p>Brands</p>
+                  <p>Coming Soon..</p>
                 </a>
               </li>
             </ul>
