@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 //Migration
 Route::get('/migrate', function(){
     Artisan::call('migrate');
+    dd('migrated!');
+});
+Route::get('/seeder', function(){
     Artisan::call('db:seed');
+    dd('Seeded!');
 });
 
 //Authentication
